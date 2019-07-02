@@ -216,27 +216,27 @@ function check($address) {
 
 	// preg_match('/ctl00_cphBody_ucSFinancialPosition_grdSFinancialPosition_ctl21_txbLiabilityYear0" class="Hidden" onkeypress="return ForceNumber\(event, &#39;int&#39;\);" style="width:80%;">\s*<span class="spanFormattedValue">(?<value>[^\<]+)<\/span>/i', $response[0], $value);
 	// // print_r($value["value"]);
-	// $sarmaye1=$value["value"];
+	// $Fund1=$value["value"];
 
 
 	// preg_match('/ctl00_cphBody_ucSFinancialPosition_grdSFinancialPosition_ctl21_txbLiabilityYear1" class="Hidden" onkeypress="return ForceNumber\(event, &#39;int&#39;\);" style="width:80%;">\s*<span class="spanFormattedValue">(?<value>[^\<]+)<\/span>/i', $response[0], $value);
 	// // print_r($value["value"]);
-	// $sarmaye2=$value["value"];
+	// $Fund2=$value["value"];
 
 
 	// preg_match('/ctl00_cphBody_ucSFinancialPosition_grdSFinancialPosition_ctl08_txbLiabilityYear0" class="Hidden" onkeypress="return ForceNumber\(event, &#39;int&#39;\);" style="width:80%;">\s*<span class="spanFormattedValue">(?<value>[^\<]+)<\/span>/i', $response[0], $value);
 	// // print_r($value["value"]);
-	// $tashilat1=$value["value"];
+	// $Financial_facilities1=$value["value"];
 
 
 	// preg_match('/ctl00_cphBody_ucSFinancialPosition_grdSFinancialPosition_ctl08_txbLiabilityYear1" class="Hidden" onkeypress="return ForceNumber\(event, &#39;int&#39;\);" style="width:80%;">\s*<span class="spanFormattedValue">(?<value>[^\<]+)<\/span>/i', $response[0], $value);
 	// // print_r($value["value"]);
-	// $tashilat2=$value["value"];
+	// $Financial_facilities2=$value["value"];
 
 
 	// preg_match('/ctl00_cphBody_ucSFinancialPosition_grdSFinancialPosition_ctl17_txbAssetYear0" class="Hidden" onkeypress="return ForceNumber\(event, &#39;int&#39;\);" style="width:80%;">\s*<span class="spanFormattedValue">(?<value>[^\<]+)<\/span>/i', $response[0], $value);
 	// // print_r($value["value"]);
-	// $darayysabetmash1=$value["value"];
+	// $Evident_fixed_assets1=$value["value"];
 
 
 	// // preg_match('/ctl00_cphBody_ucSFinancialPosition_grdSFinancialPosition_ctl16_txbAssetYear1" class="Hidden" onkeypress="return ForceNumber\(event, &#39;int&#39;\);" style="width:80%;">\s*<span class="spanFormattedValue">(?<value>[^\<]+)<\/span>/i', $response[0], $value);
@@ -245,23 +245,23 @@ function check($address) {
 
 	// preg_match('/ctl00_cphBody_ucSFinancialPosition_grdSFinancialPosition_ctl31_txbLiabilityYear0" class="Hidden" onkeypress="return ForceNumber\(event, &#39;int&#39;\);" style="width:80%;">\s*<span class="spanFormattedValue">(?<value>[^\<]+)<\/span>/i', $response[0], $value);
 	// // print_r($value["value"]);
-	// $sodeziananbash1=$value["value"];
+	// $Accumulated_gain1=$value["value"];
 
 
 	// preg_match('/ctl00_cphBody_ucSFinancialPosition_grdSFinancialPosition_ctl31_txbLiabilityYear1" class="Hidden" onkeypress="return ForceNumber\(event, &#39;int&#39;\);" style="width:80%;">\s*<span class="spanFormattedValue">(?<value>[^\<]+)<\/span>/i', $response[0], $value);
 	// // print_r($value["value"]);
-	// $sodeziananbash2=$value["value"];
+	// $Accumulated_gain2=$value["value"];
 
 
 
 	// preg_match('/ctl00_cphBody_ucSFinancialPosition_grdSFinancialPosition_ctl32_txbLiabilityYear0" class="Hidden" onkeypress="return ForceNumber\(event, &#39;int&#39;\);" style="width:80%;">\s*<span class="spanFormattedValue">(?<value>[^\<]+)<\/span>/i', $response[0], $value);
 	// // print_r($value["value"]);
-	// $jamhoghoogh1=$value["value"];
+	// $Equities1=$value["value"];
 
 
 	// preg_match('/ctl00_cphBody_ucSFinancialPosition_grdSFinancialPosition_ctl32_txbLiabilityYear1" class="Hidden" onkeypress="return ForceNumber\(event, &#39;int&#39;\);" style="width:80%;">\s*<span class="spanFormattedValue">(?<value>[^\<]+)<\/span>/i', $response[0], $value);
 	// // print_r($value["value"]);
-	// $jamhoghoogh2=$value["value"];
+	// $Equities2=$value["value"];
 
 	preg_match('/<option\s*(?<selected>selected\=\"selected\"|)\s*value\=\"(?<id>[0-9]+)\"\>Balance sheet(\s*|)\n/i', $content, $sheets);
 	// print_r($sheets);
@@ -276,28 +276,28 @@ function check($address) {
 
 	print "date: " . $date . "\n";
 
-	$sarmaye1=detect($content, ["Fund"], 1);
-	$sarmaye2=detect($content, ["Fund"], 2);
-	print "sarmaye1: " . $sarmaye1 . "\n";
-	print "sarmaye2: " . $sarmaye2 . "\n";
+	$Fund1=detect($content, ["Fund"], 1);
+	$Fund2=detect($content, ["Fund"], 2);
+	print "Fund1: " . $Fund1 . "\n";
+	print "Fund2: " . $Fund2 . "\n";
 
-	$tashilat1=detect($content, ["financial facilities", "Financial facilities received"], 1);
-	$tashilat2=detect($content, ["financial facilities", "Financial facilities received"], 2);
-	print "tashilat1: " . $tashilat1 . "\n";
-	print "tashilat2: " . $tashilat2 . "\n";
+	$Financial_facilities1=detect($content, ["financial facilities", "Financial facilities received"], 1);
+	$Financial_facilities2=detect($content, ["financial facilities", "Financial facilities received"], 2);
+	print "Financial_facilities1: " . $Financial_facilities1 . "\n";
+	print "Financial_facilities2: " . $Financial_facilities2 . "\n";
 
-	$darayysabetmash1=detect($content, ["Evident fixed assets", "Evident-fixed assets"], 1);
-	print "darayysabetmash1: " . $darayysabetmash1 . "\n";
+	$Evident_fixed_assets1=detect($content, ["Evident fixed assets", "Evident-fixed assets"], 1);
+	print "Evident_fixed_assets1: " . $Evident_fixed_assets1 . "\n";
 
-	$sodeziananbash1=detect($content, ["Accumulated (Losses) gain"], 1);
-	$sodeziananbash2=detect($content, ["Accumulated (Losses) gain"], 2);
-	print "sodeziananbash1: " . $sodeziananbash1 . "\n";
-	print "sodeziananbash2: " . $sodeziananbash2 . "\n";
+	$Accumulated_gain1=detect($content, ["Accumulated (Losses) gain"], 1);
+	$Accumulated_gain2=detect($content, ["Accumulated (Losses) gain"], 2);
+	print "Accumulated_gain1: " . $Accumulated_gain1 . "\n";
+	print "Accumulated_gain2: " . $Accumulated_gain2 . "\n";
 
-	$jamhoghoogh1=detect($content, ["Equities"], 1);
-	$jamhoghoogh2=detect($content, ["Equities"], 2);
-	print "jamhoghoogh1: " . $jamhoghoogh1 . "\n";
-	print "jamhoghoogh2: " . $jamhoghoogh2 . "\n";
+	$Equities1=detect($content, ["Equities"], 1);
+	$Equities2=detect($content, ["Equities"], 2);
+	print "Equities1: " . $Equities1 . "\n";
+	print "Equities2: " . $Equities2 . "\n";
 
 	print "---------------------------------------\n";
 }
