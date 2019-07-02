@@ -1,12 +1,12 @@
 <?php
 /**
 *
-* @Name : WebCrawler/parse.php
+* @Name : StockExchangeCrawler/parse.php
 * @Version : 1.0
 * @Programmer : Max
 * @Date : 2019-07-02
-* @Released under : https://github.com/BaseMax/WebCrawler/blob/master/LICENSE
-* @Repository : https://github.com/BaseMax/WebCrawler
+* @Released under : https://github.com/BaseMax/StockExchangeCrawler/blob/master/LICENSE
+* @Repository : https://github.com/BaseMax/StockExchangeCrawler
 *
 **/
 // Based on https://github.com/BaseMax/NetPHP
@@ -263,7 +263,7 @@ function check($address) {
 	// // print_r($value["value"]);
 	// $jamhoghoogh2=$value["value"];
 
-	preg_match('/<option\s*(?<selected>selected\=\"selected\"|)\s*value\=\"(?<id>[0-9]+)\"\>ترازنامه(\s*|)\n/i', $content, $sheets);
+	preg_match('/<option\s*(?<selected>selected\=\"selected\"|)\s*value\=\"(?<id>[0-9]+)\"\>Balance sheet(\s*|)\n/i', $content, $sheets);
 	// print_r($sheets);
 	if(isset($sheets["selected"]) and $sheets["selected"] == "" && isset($sheets["id"])) {
 		$address.="&sheetid=". $sheets["id"];
@@ -276,26 +276,26 @@ function check($address) {
 
 	print "date: " . $date . "\n";
 
-	$sarmaye1=detect($content, ["سرمایه"], 1);
-	$sarmaye2=detect($content, ["سرمایه"], 2);
+	$sarmaye1=detect($content, ["Fund"], 1);
+	$sarmaye2=detect($content, ["Fund"], 2);
 	print "sarmaye1: " . $sarmaye1 . "\n";
 	print "sarmaye2: " . $sarmaye2 . "\n";
 
-	$tashilat1=detect($content, ["تسهیلات مالی", "تسهیلات مالی دریافتی"], 1);
-	$tashilat2=detect($content, ["تسهیلات مالی", "تسهیلات مالی دریافتی"], 2);
+	$tashilat1=detect($content, ["financial facilities", "Financial facilities received"], 1);
+	$tashilat2=detect($content, ["financial facilities", "Financial facilities received"], 2);
 	print "tashilat1: " . $tashilat1 . "\n";
 	print "tashilat2: " . $tashilat2 . "\n";
 
-	$darayysabetmash1=detect($content, ["دارایی‌های ثابت مشهود", "داراییهای ثابت مشهود"], 1);
+	$darayysabetmash1=detect($content, ["Evident fixed assets", "Evident-fixed assets"], 1);
 	print "darayysabetmash1: " . $darayysabetmash1 . "\n";
 
-	$sodeziananbash1=detect($content, ["سود (زیان) انباشته"], 1);
-	$sodeziananbash2=detect($content, ["سود (زیان) انباشته"], 2);
+	$sodeziananbash1=detect($content, ["Accumulated (Losses) gain"], 1);
+	$sodeziananbash2=detect($content, ["Accumulated (Losses) gain"], 2);
 	print "sodeziananbash1: " . $sodeziananbash1 . "\n";
 	print "sodeziananbash2: " . $sodeziananbash2 . "\n";
 
-	$jamhoghoogh1=detect($content, ["جمع حقوق صاحبان سهام"], 1);
-	$jamhoghoogh2=detect($content, ["جمع حقوق صاحبان سهام"], 2);
+	$jamhoghoogh1=detect($content, ["Equities"], 1);
+	$jamhoghoogh2=detect($content, ["Equities"], 2);
 	print "jamhoghoogh1: " . $jamhoghoogh1 . "\n";
 	print "jamhoghoogh2: " . $jamhoghoogh2 . "\n";
 
